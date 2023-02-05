@@ -46,7 +46,7 @@ for match in matches:
 
 @app.route("/")
 def index():
-    return render_template("results.html", matches=matches)
+    return render_template("idex.html", matches=matches)
 
 @app.route("/match/<match_name>")
 def show_match(match_name):
