@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>{{ match.match_name }} Streams</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #3B3B3B;
+      }
+      h1, h2 {
+        text-align: center;
+        margin: 20px 0;
+        color: white;
+      }
+      .header {
+        background-color: #3B3B3B;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .header img {
+        height: 40px;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        background-color: white;
+        width: 60%;
+        margin: 20px 0;
+        padding: 20px;
+        box-shadow: 0 0 10px lightgray;
+        border-radius: 5px;
+      }
+      a {
+        font-size: 1.2em;
+        text-decoration: none;
+        color: blue;
+      }
+      .footer {
+        background-color: #3B3B3B;
+        color: white;
+        height: 60px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .footer a {
+        color: white;
+      }
+      .social-media-icons {
+        display: flex;
+      }
+      .social-media-icon {
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      
+    </header>
+    <h1>{{ match.match_name }}</h1>
+    <p>{{ match.time }}</p>
+    <h2>Stream Links</h2>
+    <ul>
+      {% for link in match.stream_links %}
+        <li><a href="{{ link }}">{{ link }}</a></li>
+      
+{% endfor %}
+</ul>
+<footer class="footer">
+
+<p>All rights reserved © {{ current_year }}</p>
+</footer>
+
+  </body>
+</html>

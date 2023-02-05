@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title>Streaming links</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1B1B1B;
+        color: white;
+      }
+      h1 {
+        text-align: center;
+        margin: 40px 0;
+        font-size: 36px;
+        font-weight: bold;
+      }
+      h2 {
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin: 40px 0;
+      }
+      ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 40px 0;
+      }
+      li {
+        width: 300px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #333333;
+        border-radius: 10px;
+        text-align: center;
+      }
+      a {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: white;
+      }
+      p {
+        font-size: 16px;
+        margin-bottom: 0;
+        color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Goalzone</h1>
+      <h2>matches</h2>
+    </header>
+    {% for league, league_matches in matches|groupby("league") %}
+      <h2>{{ league }}</h2>
+      <ul>
+        {% for match in league_matches %}
+          <li>
+            <a href="{{ url_for('show_match', match_name=match.match_name) }}">{{ match.match_name }}</a>
+            <p>{{ match.time }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+    <footer>
+      <p>Copyright &copy; 2022 TotalSportek</p>
+    </footer>
+  </body>
+</html>
